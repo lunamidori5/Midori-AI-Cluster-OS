@@ -12,8 +12,8 @@ Introducing **PixelArch OS** by Midori AI, an innovative Arch-based operating sy
 
 Key Features:
 - **Arch-Based**: Leverages the lightweight and flexible nature of Arch Linux, allowing for a highly customizable and efficient OS tailored to your needs.
-- **Runs in Docker**: Optimized for Docker, making it easier to build, deploy, and manage containerized applications.
-- **Frequent Updates**: Ensures that your system and Docker images are always current, reducing the risk of security vulnerabilities and improving performance.
+- **Runs in Docker**: Optimized for Docker, making it easier to build, deploy, and manage containerized ai applications.
+- **Frequent Updates**: Ensures that its systems are always current, reducing the risk of security vulnerabilities and improving performance.
 
 ## Get Involved:
 
