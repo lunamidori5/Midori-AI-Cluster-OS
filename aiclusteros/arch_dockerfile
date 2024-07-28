@@ -3,7 +3,13 @@ FROM archlinux:latest
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-RUN pacman -Syu --noconfirm --needed sudo git base-devel go
+RUN sed -i 's/Arch Linux/PixelArch Linux/g' /etc/os-release
+
+RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+
+COPY ohmybashroot.sh .bashrc
+
+RUN pacman -Syu --noconfirm --needed sudo base-devel go git && pacman -Sccc --noconfirm
 
 ARG USERNAME=midori-ai
 ARG USER_UID=1000
@@ -14,7 +20,12 @@ RUN groupadd --gid $USER_GID $USERNAME && useradd --uid $USER_UID --gid $USER_GI
 USER $USERNAME
 WORKDIR /home/$USERNAME
 
-RUN git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm
+RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
-RUN yay -Syu --noconfirm --devel --diffmenu=false --answerclean A --save
+COPY ohmybashuser.sh .bashrc
+COPY pixalarch-logo.png pixalarch-logo.png
+
+RUN git clone --progress https://aur.archlinux.org/yay-git.git && cd yay-git && makepkg -si --noconfirm && cd .. && rm -rf yay-git
+
+RUN yay -Syu --noconfirm --devel --diffmenu=false --answerclean A --save && yay -Yccc --noconfirm
 
