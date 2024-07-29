@@ -1,10 +1,6 @@
 # Midori Ai Cluster OS
 
-**Cluster-Based AI:** Our Cluster OS harnesses the collective power of multiple machines to accelerate AI training and inference. This enables us to tackle complex tasks, train larger models, and achieve unprecedented results.
-
-**PixelArch OS:** At the heart of our Cluster OS lies PixelArch OS, our custom Arch-based operating system. PixelArch is specifically designed to streamline Docker image management, ensuring your containerized applications are always up to date, secure, and performant.
-
-**Currently Available:** Right now it is able to generate photos for our weather api but we are entering wave 2 testing soon!
+**Cluster-Based AI:** 
 
 ## PixelArch OS
 
@@ -14,6 +10,18 @@ Key Features:
 - **Arch-Based**: Leverages the lightweight and flexible nature of Arch Linux, allowing for a highly customizable and efficient OS tailored to your needs.
 - **Runs in Docker**: Optimized for Docker, making it easier to build, deploy, and manage containerized ai applications.
 - **Frequent Updates**: Ensures that its systems are always current, reducing the risk of security vulnerabilities and improving performance.
+- **Package Manager**:  Utilizes the powerful `yay` package manager, alongside the traditional `pacman`, for a streamlined and efficient package management experience. 
+
+## Cluster-Based OS
+
+**Midori AI's Cluster OS** Our Cluster OS harnesses the collective power of multiple machines to accelerate AI training and building. This enables us to tackle complex tasks, train larger models, and achieve unprecedented results. This distributed architecture unlocks unparalleled performance for:
+
+- **Scalable AI Training:** Train larger, more complex models, enabling breakthroughs in model accuracy and capabilities.
+- **Scalable Infrastructure:**  Seamlessly scale AI resources up or down as needed, ensuring optimal performance and cost-efficiency.
+- **Runs in Docker**: Cluster OS leverages the power of Docker and our custom PixelArch OS to deliver a streamlined and efficient containerized experience.  PixelArch, built upon Arch Linux, is specifically engineered to run in Docker for easy setup and testing.
+
+**Currently Available:** Right now it is able to generate photos for our weather api but we are entering wave 2 testing soon!
+
 
 ## Get Involved:
 
