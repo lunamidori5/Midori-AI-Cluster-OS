@@ -10,9 +10,9 @@ Key Features:
 - **Frequent Updates**: Ensures that its systems are always current, reducing the risk of security vulnerabilities and improving performance.
 - **Package Manager**:  Utilizes the powerful `yay` package manager, alongside the traditional `pacman`, for a streamlined and efficient package management experience. 
 
-## Cluster-Based OS
+## Midori AI's Cluster OS
 
-**Midori AI's Cluster OS** Our Cluster OS harnesses the collective power of multiple machines to accelerate AI training and building. This enables us to tackle complex tasks, train larger models, and achieve unprecedented results. This distributed architecture unlocks unparalleled performance for:
+Our Cluster OS harnesses the collective power of multiple machines to accelerate AI training and building. This enables us to tackle complex tasks, train larger models, and achieve unprecedented results. This distributed architecture unlocks unparalleled performance for:
 
 - **Scalable AI Training:** Train larger, more complex models, enabling breakthroughs in model accuracy and capabilities.
 - **Scalable Infrastructure:**  Seamlessly scale AI resources up or down as needed, ensuring optimal performance and cost-efficiency.
