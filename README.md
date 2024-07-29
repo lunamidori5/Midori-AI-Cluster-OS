@@ -1,7 +1,5 @@
 # Midori Ai Cluster OS
 
-**Cluster-Based AI:** 
-
 ## PixelArch OS
 
 Introducing **PixelArch OS** by Midori AI, an innovative Arch-based operating system designed specifically for managing Docker images with ease. PixelArch OS ensures that your Docker environments are always up to date, providing a streamlined and efficient platform for developers and system administrators.
