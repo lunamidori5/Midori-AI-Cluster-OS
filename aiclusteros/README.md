@@ -1,3 +1,5 @@
+![pixelarch-logo](https://tea-cup.midori-ai.xyz/download/pixalarch-banner.png)
+
 # How to setup PixelArch for testing
 
 ## Using `Distrobox` (Recommened)
