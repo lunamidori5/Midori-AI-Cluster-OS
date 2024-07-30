@@ -4,6 +4,9 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 RUN sed -i 's/Arch Linux/PixelArch Linux/g' /etc/os-release
+
+COPY pixalarch-logo.png /etc/pixalarch-logo.png
+
 RUN pacman -Syu --noconfirm --needed curl sudo base-devel go git && pacman -Sccc --noconfirm
 
 RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
@@ -22,7 +25,6 @@ WORKDIR /home/$USERNAME
 RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
 COPY ohmybashuser.sh .bashrc
-COPY pixalarch-logo.png pixalarch-logo.png
 
 RUN git clone --progress https://aur.archlinux.org/yay-git.git && cd yay-git && makepkg -si --noconfirm && cd .. && rm -rf yay-git
 
