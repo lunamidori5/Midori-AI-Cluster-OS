@@ -1,0 +1,9 @@
+FROM lunamidori5/pixelarch:quartz
+
+RUN sudo sed -i 's/Quartz/Amethyst/g' /etc/os-release
+
+RUN yay -Syu --noconfirm lolcat unzip zip tree jq tar curl wget && yay -Yccc --noconfirm
+
+RUN yay -Syu --noconfirm bash-completion-git fastfetch-git && yay -Yccc --noconfirm
+
+RUN yay -Syu --noconfirm docker docker-compose && yay -Yccc --noconfirm

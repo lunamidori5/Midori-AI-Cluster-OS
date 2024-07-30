@@ -1,0 +1,9 @@
+FROM lunamidori5/pixelarch:amethyst
+
+RUN sudo sed -i 's/Amethyst/Topaz/g' /etc/os-release
+
+RUN yay -Syu --noconfirm python python-pyfiglet python-virtualenv && yay -Yccc --noconfirm
+
+RUN yay -Syu --noconfirm nodejs nvm && yay -Yccc --noconfirm
+
+RUN yay -Syu --noconfirm rust gcc && yay -Yccc --noconfirm

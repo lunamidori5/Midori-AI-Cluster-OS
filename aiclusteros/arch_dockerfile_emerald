@@ -1,0 +1,5 @@
+FROM lunamidori5/pixelarch:topaz
+
+RUN sudo sed -i 's/Topaz/Emerald/g' /etc/os-release
+
+RUN yay -Syu --noconfirm tmate-git openssh-git && yay -Yccc --noconfirm

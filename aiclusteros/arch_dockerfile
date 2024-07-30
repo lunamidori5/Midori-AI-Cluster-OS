@@ -3,7 +3,7 @@ FROM archlinux:latest
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-RUN sed -i 's/Arch Linux/PixelArch Linux/g' /etc/os-release
+RUN sed -i 's/Arch Linux/PixelArch Linux - Quartz/g' /etc/os-release
 
 COPY pixalarch-logo.png /etc/pixalarch-logo.png
 

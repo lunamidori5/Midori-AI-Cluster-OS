@@ -1,5 +1,8 @@
 services:
-  archlinux:
-    build: .
+  pixelarch-os:
+    build:
+      context: .
+      dockerfile: ./arch_dockerfile
     tty: true
     restart: always
+    command: ["sleep", "infinity"]
