@@ -7,7 +7,11 @@ RUN sed -i 's/Arch Linux/PixelArch Linux - Quartz/g' /etc/os-release
 
 COPY pixalarch-logo.png /etc/pixalarch-logo.png
 
-RUN pacman -Syu --noconfirm --needed curl sudo base-devel go git && pacman -Sccc --noconfirm
+RUN pacman -Syu --noconfirm --needed curl && pacman -Sccc --noconfirm
+RUN pacman -Syu --noconfirm --needed git && pacman -Sccc --noconfirm
+RUN pacman -Syu --noconfirm --needed sudo && pacman -Sccc --noconfirm
+RUN pacman -Syu --noconfirm --needed base-devel && pacman -Sccc --noconfirm
+RUN pacman -Syu --noconfirm --needed go && pacman -Sccc --noconfirm
 
 RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
