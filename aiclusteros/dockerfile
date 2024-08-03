@@ -1,9 +1,11 @@
 FROM lunamidori5/pixelarch:latest
 
-RUN yay -Syu --noconfirm python tar curl wget tmate-git fastfetch-git bash-completion-git
-RUN yay -Syu --noconfirm unzip zip tree nvidia-container-toolkit jq lolcat
-RUN yay -Syu --noconfirm python-pyfiglet python-virtualenv
-RUN yay -Syu --noconfirm python311 python310 docker docker-compose
+RUN sudo sed -i 's/Quartz/Cluster/g' /etc/os-release
+
+RUN yay -Syu --noconfirm tar curl wget unzip zip jq tree lolcat
+RUN yay -Syu --noconfirm tmate-git fastfetch-git bash-completion-git cmake-git fish-git
+RUN yay -Syu --noconfirm python python311 python310 docker docker-compose nvidia-container-toolkit
+RUN yay -Syu --noconfirm python-pyfiglet python-virtualenv 
 
 RUN yay -Ycc --noconfirm
 
