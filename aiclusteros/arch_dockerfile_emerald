@@ -4,6 +4,5 @@ RUN sudo sed -i 's/Topaz/Emerald/g' /etc/os-release
 
 RUN yay -Syu --noconfirm openssh && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm enlightenment-git && yay -Yccc --noconfirm
-RUN yay -Syu --noconfirm enlightenment-arc-theme-git && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm tmate-git && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm torbrowser-launcher-git && yay -Yccc --noconfirm
