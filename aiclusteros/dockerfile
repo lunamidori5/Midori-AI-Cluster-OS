@@ -2,12 +2,10 @@ FROM lunamidori5/pixelarch:latest
 
 RUN sudo sed -i 's/Quartz/Cluster/g' /etc/os-release
 
-RUN yay -Syu --noconfirm tar curl wget unzip zip jq tree lolcat
-RUN yay -Syu --noconfirm tmate-git fastfetch-git bash-completion-git cmake-git fish-git
-RUN yay -Syu --noconfirm python python311 python310 docker docker-compose nvidia-container-toolkit
-RUN yay -Syu --noconfirm python-pyfiglet python-virtualenv 
-
-RUN yay -Ycc --noconfirm
+RUN yay -Syu --noconfirm tar curl wget unzip zip jq tree lolcat fish && yay -Yccc --noconfirm
+RUN yay -Syu --noconfirm tmate-git fastfetch-git bash-completion-git cmake-git && yay -Yccc --noconfirm
+RUN yay -Syu --noconfirm python python311 python310 docker docker-compose nvidia-container-toolkit && yay -Yccc --noconfirm
+RUN yay -Syu --noconfirm python-pyfiglet python-virtualenv && yay -Yccc --noconfirm
 
 # Make the python venv
 # use "os/bin/python" for python
