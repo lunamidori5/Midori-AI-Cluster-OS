@@ -30,7 +30,7 @@ RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/
 
 COPY ohmybashuser.sh .bashrc
 
-RUN git clone --progress https://aur.archlinux.org/yay-git.git && cd yay-git && makepkg -si --noconfirm && cd .. && rm -rf yay-git
+RUN git clone --progress https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm && cd .. && rm -rf yay
 
 RUN yay -Syu --noconfirm --devel --diffmenu=false --answerclean A --save && yay -Yccc --noconfirm
 
