@@ -16,7 +16,7 @@ RUN wget -O /usr/local/bin/pacapt https://github.com/icy/pacapt/raw/ng/pacapt
 RUN chmod 755 /usr/local/bin/pacapt
 RUN ln -sv /usr/local/bin/pacapt /usr/local/bin/yay || true
 RUN ln -sv /usr/local/bin/pacapt /usr/local/bin/pacman || true
-RUN yay -S --noconfirm fastfetch tmate fish && pacman -Sccc --noconfirm
+RUN pacman -S --noconfirm fastfetch tmate fish && pacman -Sccc --noconfirm
 
 RUN pacman -S --noconfirm --needed curl && pacman -Sccc --noconfirm
 RUN pacman -S --noconfirm --needed git && pacman -Sccc --noconfirm
