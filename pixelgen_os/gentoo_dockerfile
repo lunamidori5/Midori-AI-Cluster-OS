@@ -1,0 +1,40 @@
+FROM gentoo/stage3:latest
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+RUN sed -i 's/Gentoo Linux/PixelGen Linux - Quartz/g' /etc/os-release
+
+COPY pixalarch-logo.png /etc/pixalarch-logo.png
+
+RUN emerge --verbose --sync
+RUN emerge -e --verbose --update --deep --newuse @world
+
+RUN wget -O /usr/local/bin/pacapt https://github.com/icy/pacapt/raw/ng/pacapt
+RUN chmod 755 /usr/local/bin/pacapt
+RUN ln -sv /usr/local/bin/pacapt /usr/local/bin/yay || true
+RUN ln -sv /usr/local/bin/pacapt /usr/local/bin/pacman || true
+RUN yay -S --noconfirm fastfetch tmate fish && pacman -Sccc --noconfirm
+
+RUN pacman -S --noconfirm --needed curl && pacman -Sccc --noconfirm
+RUN pacman -S --noconfirm --needed git && pacman -Sccc --noconfirm
+RUN pacman -S --noconfirm --needed sudo && pacman -Sccc --noconfirm
+RUN pacman -S --noconfirm --needed base-devel && pacman -Sccc --noconfirm
+RUN pacman -S --noconfirm --needed go && pacman -Sccc --noconfirm
+
+RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+
+COPY ohmybashroot.sh .bashrc
+
+ARG USERNAME=midori-ai
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+RUN groupadd --gid $USER_GID $USERNAME && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME && echo "$USERNAME ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/$USERNAME && chmod 0440 /etc/sudoers.d/$USERNAME
+
+USER $USERNAME
+WORKDIR /home/$USERNAME
+
+RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+
+COPY ohmybashuser.sh .bashrc
