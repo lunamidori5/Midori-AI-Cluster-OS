@@ -16,13 +16,15 @@ RUN wget -O /usr/local/bin/pacapt https://github.com/icy/pacapt/raw/ng/pacapt
 RUN chmod 755 /usr/local/bin/pacapt
 RUN ln -sv /usr/local/bin/pacapt /usr/local/bin/yay || true
 RUN ln -sv /usr/local/bin/pacapt /usr/local/bin/pacman || true
-RUN pacman -S --noconfirm fastfetch tmate fish && pacman -Sccc --noconfirm
 
-RUN pacman -S --noconfirm --needed curl && pacman -Sccc --noconfirm
-RUN pacman -S --noconfirm --needed git && pacman -Sccc --noconfirm
-RUN pacman -S --noconfirm --needed sudo && pacman -Sccc --noconfirm
-RUN pacman -S --noconfirm --needed base-devel && pacman -Sccc --noconfirm
-RUN pacman -S --noconfirm --needed go && pacman -Sccc --noconfirm
+RUN pacman -S tmate && pacman -Sccc 
+RUN pacman -S fastfetch && pacman -Sccc 
+RUN pacman -S fish && pacman -Sccc 
+
+RUN pacman -S curl && pacman -Sccc 
+RUN pacman -S git && pacman -Sccc 
+RUN pacman -S sudo && pacman -Sccc 
+RUN pacman -S go && pacman -Sccc 
 
 RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
