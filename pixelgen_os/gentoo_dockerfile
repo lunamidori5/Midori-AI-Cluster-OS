@@ -8,8 +8,6 @@ RUN sed -i 's/Gentoo Linux/PixelGen Linux - Quartz/g' /etc/os-release
 COPY pixalarch-logo.png /etc/pixalarch-logo.png
 
 RUN emerge --verbose --sync
-RUN emerge -e --verbose --update --deep --newuse @world
-
 RUN emerge --verbose wget
 
 RUN wget -O /usr/local/bin/pacapt https://github.com/icy/pacapt/raw/ng/pacapt
@@ -26,6 +24,8 @@ RUN yay -S curl && yay -Scc
 RUN yay -S dev-vcs/git && yay -Scc
 RUN yay -S app-admin/sudo && yay -Scc
 RUN yay -S go && yay -Scc
+
+# RUN emerge -e --verbose --update --deep --newuse @world
 
 RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
