@@ -17,14 +17,15 @@ RUN chmod 755 /usr/local/bin/pacapt
 RUN ln -sv /usr/local/bin/pacapt /usr/local/bin/yay || true
 RUN ln -sv /usr/local/bin/pacapt /usr/local/bin/pacman || true
 
-RUN yay -S tmate && yay -Sccc 
-RUN yay -S fastfetch && yay -Sccc 
-RUN yay -S fish && yay -Sccc 
+RUN yay -S gentoolkit && yay -Scc
+RUN yay -S tmate && yay -Scc
+RUN yay -S fastfetch && yay -Scc
+RUN yay -S fish && yay -Scc
 
-RUN yay -S curl && yay -Sccc 
-RUN yay -S git && yay -Sccc 
-RUN yay -S sudo && yay -Sccc 
-RUN yay -S go && yay -Sccc 
+RUN yay -S curl && yay -Scc
+RUN yay -S dev-vcs/git && yay -Scc
+RUN yay -S app-admin/sudo && yay -Scc
+RUN yay -S go && yay -Scc
 
 RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
