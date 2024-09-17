@@ -5,6 +5,8 @@ ENV PYTHONUNBUFFERED=1
 
 RUN sed -i 's/Gentoo Linux/PixelGen Linux - Quartz/g' /etc/os-release
 
+COPY make.conf /etc/portage/make.conf
+
 COPY pixalarch-logo.png /etc/pixalarch-logo.png
 
 RUN emerge --verbose --sync
@@ -25,21 +27,8 @@ RUN yay -S dev-vcs/git && yay -Scc
 RUN yay -S app-admin/sudo && yay -Scc
 RUN yay -S go && yay -Scc
 
-# RUN emerge -e --verbose --update --deep --newuse @world
+RUN emerge -e --verbose --update --deep --newuse @world
 
 RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
 COPY ohmybashroot.sh .bashrc
-
-ARG USERNAME=midori-ai
-ARG USER_UID=1000
-ARG USER_GID=$USER_UID
-
-RUN groupadd --gid $USER_GID $USERNAME && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME && echo "$USERNAME ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/$USERNAME && chmod 0440 /etc/sudoers.d/$USERNAME
-
-USER $USERNAME
-WORKDIR /home/$USERNAME
-
-RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-
-COPY ohmybashuser.sh .bashrc
