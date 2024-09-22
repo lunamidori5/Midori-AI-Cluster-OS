@@ -3,7 +3,7 @@ FROM gentoo/stage3:latest
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-RUN sed -i 's/Gentoo Linux/PixelGen Linux - Quartz/g' /etc/os-release
+RUN sed -i 's/Gentoo/PixelGen Linux - Quartz/g' /etc/os-release
 
 COPY make.conf /etc/portage/make.conf
 
