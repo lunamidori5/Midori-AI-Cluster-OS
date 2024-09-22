@@ -26,6 +26,8 @@ RUN groupadd --gid $USER_GID $USERNAME && useradd --uid $USER_UID --gid $USER_GI
 USER $USERNAME
 WORKDIR /home/$USERNAME
 
+RUN sudo groupadd docker && sudo usermod -aG docker $USER
+
 RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
 COPY ohmybashuser.sh .bashrc
