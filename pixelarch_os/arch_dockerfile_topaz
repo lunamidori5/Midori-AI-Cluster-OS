@@ -2,8 +2,10 @@ FROM lunamidori5/pixelarch:amethyst
 
 RUN sudo sed -i 's/Amethyst/Topaz/g' /etc/os-release
 
-RUN yay -Syu --noconfirm python python-pip python-pyfiglet python-virtualenv && yay -Yccc --noconfirm
+RUN yay -Syu --noconfirm python python-pip python-pyfiglet python-virtualenv uv && yay -Yccc --noconfirm
 
 RUN yay -Syu --noconfirm nodejs nvm && yay -Yccc --noconfirm
 
 RUN yay -Syu --noconfirm rust gcc && yay -Yccc --noconfirm
+
+RUN yay -Syu --noconfirm wine xorg-server-xvfb && yay -Yccc --noconfirm
