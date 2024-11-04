@@ -13,6 +13,9 @@ RUN pacman -Syu --noconfirm --needed sudo && pacman -Sccc --noconfirm
 RUN pacman -Syu --noconfirm --needed base-devel && pacman -Sccc --noconfirm
 RUN pacman -Syu --noconfirm --needed go && pacman -Sccc --noconfirm
 
+RUN echo "[multilib]" >> /etc/pacman.conf
+RUN echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
+
 RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
 COPY ohmybashroot.sh .bashrc
