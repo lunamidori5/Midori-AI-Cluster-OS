@@ -10,12 +10,12 @@ COPY make.conf /etc/portage/make.conf
 COPY pixalarch-logo.png /etc/pixalarch-logo.png
 
 RUN emerge --verbose --sync
-RUN emerge --verbose wget
+RUN emerge --verbose wget rust git
 
-RUN wget -O /usr/local/bin/pacapt https://github.com/icy/pacapt/raw/ng/pacapt
-RUN chmod 755 /usr/local/bin/pacapt
-RUN ln -sv /usr/local/bin/pacapt /usr/local/bin/yay || true
-RUN ln -sv /usr/local/bin/pacapt /usr/local/bin/pacman || true
+RUN git clone https://github.com/rami3l/pacaptr.git && cd pacaptr && cargo install --path .
+RUN chmod 755 ~/.cargo/bin/pacaptr
+RUN ln -sv ~/.cargo/bin/pacaptr /usr/local/bin/yay || true
+RUN ln -sv ~/.cargo/bin/pacaptr /usr/local/bin/pacman || true
 
 RUN yay -S gentoolkit && yay -Scc
 RUN yay -S tmate && yay -Scc
