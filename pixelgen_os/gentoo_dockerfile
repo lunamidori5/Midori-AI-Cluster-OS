@@ -10,7 +10,7 @@ COPY make.conf /etc/portage/make.conf
 COPY pixalarch-logo.png /etc/pixalarch-logo.png
 
 RUN emerge --verbose --sync
-RUN emerge --verbose wget rust git
+RUN emerge --verbose wget rust dev-vcs/git app-admin/sudo
 
 RUN git clone https://github.com/rami3l/pacaptr.git && cd pacaptr && cargo install --path .
 RUN chmod 755 ~/.cargo/bin/pacaptr
@@ -23,8 +23,6 @@ RUN yay -S fastfetch && yay -Scc
 RUN yay -S fish && yay -Scc
 
 RUN yay -S curl && yay -Scc
-RUN yay -S dev-vcs/git && yay -Scc
-RUN yay -S app-admin/sudo && yay -Scc
 RUN yay -S go && yay -Scc
 
 RUN emerge -e --verbose --update --deep --newuse @world
