@@ -39,4 +39,6 @@ plugins=(
   pyenv
 )
 
+alias fastfetch='fastfetch --logo-type iterm --logo /etc/pixalarch-logo.png --logo-width 40 --logo-height 21 --logo-padding 2 --color blue'
+
 source "$OSH"/oh-my-bash.sh

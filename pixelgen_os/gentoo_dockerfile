@@ -9,24 +9,23 @@ COPY make.conf /etc/portage/make.conf
 
 COPY pixalarch-logo.png /etc/pixalarch-logo.png
 
-RUN echo "emerge --sync" && emerge --sync
-RUN echo "emerge wget" && emerge wget
-RUN echo "emerge dev-vcs/git" && emerge dev-vcs/git
-RUN echo "emerge rust" && emerge rust
-RUN echo "emerge app-admin/sudo" && emerge app-admin/sudo
+RUN emerge --sync
+RUN emerge rust 
 
-RUN git clone https://github.com/rami3l/pacaptr.git && cd pacaptr && cargo install --path .
+RUN cargo install pacaptr --git https://github.com/rami3l/pacaptr.git
 RUN chmod 755 ~/.cargo/bin/pacaptr
 RUN ln -sv ~/.cargo/bin/pacaptr /usr/local/bin/yay || true
 RUN ln -sv ~/.cargo/bin/pacaptr /usr/local/bin/pacman || true
 
-RUN yay -S gentoolkit && yay -Scc
-RUN yay -S tmate && yay -Scc
-RUN yay -S fastfetch && yay -Scc
-RUN yay -S fish && yay -Scc
+RUN yay -S --noconfirm curl && yay -Scc --noconfirm
+RUN yay -S --noconfirm app-admin/sudo && yay -Scc --noconfirm
+RUN yay -S --noconfirm go && yay -Scc --noconfirm
 
-RUN yay -S curl && yay -Scc
-RUN yay -S go && yay -Scc
+RUN yay -S --noconfirm gentoolkit && yay -Scc --noconfirm
+RUN yay -S --noconfirm wget && yay -Scc --noconfirm
+RUN yay -S --noconfirm tmate && yay -Scc --noconfirm
+RUN yay -S --noconfirm fastfetch && yay -Scc --noconfirm
+RUN yay -S --noconfirm fish && yay -Scc --noconfirm
 
 RUN emerge -e --verbose --update --deep --newuse @world
 
