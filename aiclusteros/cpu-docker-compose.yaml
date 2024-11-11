@@ -1,0 +1,14 @@
+services:
+  midori_ai_cluster:
+    tty: true
+    restart: always
+    image: lunamidori5/midori_ai_cluster
+    build:
+      context: .
+      dockerfile: dockerfile
+    environment:
+      - CPUCORES=1
+      - GPUUSE=false
+      - BOTHUSE=false
+      - USERNAME=-midori-ai-hub
+      - DISCORD_ID=
