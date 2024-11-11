@@ -17,15 +17,7 @@ RUN chmod 755 ~/.cargo/bin/pacaptr
 RUN ln -sv ~/.cargo/bin/pacaptr /usr/local/bin/yay || true
 RUN ln -sv ~/.cargo/bin/pacaptr /usr/local/bin/pacman || true
 
-RUN yay -S --noconfirm curl && yay -Scc --noconfirm
-RUN yay -S --noconfirm app-admin/sudo && yay -Scc --noconfirm
-RUN yay -S --noconfirm go && yay -Scc --noconfirm
-
-RUN yay -S --noconfirm gentoolkit && yay -Scc --noconfirm
-RUN yay -S --noconfirm wget && yay -Scc --noconfirm
-RUN yay -S --noconfirm tmate && yay -Scc --noconfirm
-RUN yay -S --noconfirm fastfetch && yay -Scc --noconfirm
-RUN yay -S --noconfirm fish && yay -Scc --noconfirm
+RUN yay -S --noconfirm go app-admin/sudo gentoolkit wget tmate fastfetch fish && yay -Scc --noconfirm
 
 RUN emerge -e --verbose --update --deep --newuse @world
 
