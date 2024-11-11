@@ -32,18 +32,20 @@ WORKDIR /home/$USERNAME
 RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
 COPY ohmybashuser.sh .bashrc
+COPY update_midori_ai_apps.sh .
 
 RUN curl -k --disable --disable-eprt -s https://tea-cup.midori-ai.xyz/download/pixelarch-midori-ai-downloader > pixelarch-midori-ai-downloader
 RUN curl -k --disable --disable-eprt -s https://tea-cup.midori-ai.xyz/download/pixelarch-hf-downloader > pixelarch-hf-downloader
 RUN curl -k --disable --disable-eprt -s https://tea-cup.midori-ai.xyz/download/pixelarch-midori-ai-login > pixelarch-midori-ai-login
 RUN curl -k --disable --disable-eprt -s https://tea-cup.midori-ai.xyz/download/pixelarch-midori-ai-uploader > pixelarch-midori-ai-uploader
 
-RUN chmod +x pixelarch-midori-ai-uploader pixelarch-midori-ai-login pixelarch-hf-downloader pixelarch-midori-ai-downloader
+RUN chmod +x update_midori_ai_apps.sh pixelarch-midori-ai-uploader pixelarch-midori-ai-login pixelarch-hf-downloader pixelarch-midori-ai-downloader
 
 RUN sudo mv pixelarch-hf-downloader /usr/local/bin/hf-downloader
 RUN sudo mv pixelarch-midori-ai-downloader /usr/local/bin/midori-ai-downloader
 RUN sudo mv pixelarch-midori-ai-login /usr/local/bin/midori-ai-login
 RUN sudo mv pixelarch-midori-ai-uploader /usr/local/bin/midori-ai-uploader
+RUN sudo mv update_midori_ai_apps.sh /usr/local/bin/update-midori-ai
 
 RUN git clone --progress https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm && cd .. && sudo rm -rf yay
 
