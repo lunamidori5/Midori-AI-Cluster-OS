@@ -19,8 +19,6 @@ RUN ln -sv ~/.cargo/bin/pacaptr /usr/local/bin/pacman || true
 
 RUN yay -S --noconfirm go app-admin/sudo gentoolkit wget tmate fastfetch fish && yay -Scc --noconfirm
 
-RUN emerge -e --verbose --update --deep --newuse @world
-
 RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
 COPY ohmybashroot.sh .bashrc
