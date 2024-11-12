@@ -45,7 +45,7 @@ RUN sudo mv pixelarch-hf-downloader /usr/local/bin/hf-downloader
 RUN sudo mv pixelarch-midori-ai-downloader /usr/local/bin/midori-ai-downloader
 RUN sudo mv pixelarch-midori-ai-login /usr/local/bin/midori-ai-login
 RUN sudo mv pixelarch-midori-ai-uploader /usr/local/bin/midori-ai-uploader
-RUN sudo mv update_midori_ai_apps.sh /usr/local/bin/update-midori-ai
+RUN sudo mv update_midori_ai_apps.sh /usr/local/bin/midori-ai-updater
 
 RUN git clone --progress https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm && cd .. && sudo rm -rf yay
 
