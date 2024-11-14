@@ -11,10 +11,10 @@ RUN yay -Syu --noconfirm jq && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm tree && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm lolcat && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm fish && yay -Yccc --noconfirm
-RUN yay -Syu --noconfirm tmate-git && yay -Yccc --noconfirm
-RUN yay -Syu --noconfirm fastfetch-git && yay -Yccc --noconfirm
-RUN yay -Syu --noconfirm bash-completion-git && yay -Yccc --noconfirm
-RUN yay -Syu --noconfirm cmake-git && yay -Yccc --noconfirm
+RUN yay -Syu --noconfirm tmate && yay -Yccc --noconfirm
+RUN yay -Syu --noconfirm fastfetch && yay -Yccc --noconfirm
+RUN yay -Syu --noconfirm bash-completion && yay -Yccc --noconfirm
+RUN yay -Syu --noconfirm cmake && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm python && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm python311 && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm python310 && yay -Yccc --noconfirm
