@@ -16,8 +16,6 @@ RUN yay -Syu --noconfirm fastfetch && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm bash-completion && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm cmake && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm python && yay -Yccc --noconfirm
-RUN yay -Syu --noconfirm python311 && yay -Yccc --noconfirm
-RUN yay -Syu --noconfirm python310 && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm uv && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm docker && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm docker-compose && yay -Yccc --noconfirm
