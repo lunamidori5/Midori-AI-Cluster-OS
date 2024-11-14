@@ -28,7 +28,7 @@ RUN yay -Syu --noconfirm python-virtualenv && yay -Yccc --noconfirm
 RUN echo "sudo rm -rf /var/lib/pacman/db.lck" > executable.sh
 RUN echo "yay -Syu --noconfirm" >> executable.sh
 
-RUN echo "uv venv --link-mode=copy os" >> executable.sh
+RUN echo "uv venv --link-mode=copy" >> executable.sh
 RUN echo "uv pip install -U --no-cache-dir cryptography aiohttp psutil pytz climage diskcache requests subprocess32 tqdm" >> executable.sh
 
 RUN echo "midori-ai-downloader aicluster_prod.py" >> executable.sh
