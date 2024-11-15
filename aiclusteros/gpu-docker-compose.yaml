@@ -19,3 +19,5 @@ services:
       - BOTHUSE=false
       - USERNAME=-midori-ai-hub
       - DISCORD_ID=
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
