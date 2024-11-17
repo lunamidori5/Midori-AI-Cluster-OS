@@ -35,13 +35,15 @@ RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/
 COPY ohmybashuser.sh .bashrc
 COPY update_midori_ai_apps.sh .
 
+RUN echo remove caching from systems please
+
 RUN curl -k --disable --disable-eprt -s https://tea-cup.midori-ai.xyz/download/pixelarch-midori-ai-updater > pixelarch-midori-ai-updater
 
 RUN sudo chmod +x pixelarch-midori-ai-updater
 
 RUN sudo mv pixelarch-midori-ai-updater /usr/local/bin/midori-ai-updater
 
-RUN sudo midori-ai-updater
+RUN sh -c "sudo midori-ai-updater"
 
 RUN git clone --progress https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm && cd .. && sudo rm -rf yay
 
