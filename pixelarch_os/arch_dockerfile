@@ -4,6 +4,10 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 RUN sed -i 's/Arch Linux/PixelArch Linux - Quartz/g' /etc/os-release
+RUN echo "VARIANT=Quartz" >> /etc/os-release
+
+RUN echo "[multilib]" >> /etc/pacman.conf
+RUN echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
 
 COPY pixalarch-logo.png /etc/pixalarch-logo.png
 
@@ -12,9 +16,6 @@ RUN pacman -Syu --noconfirm --needed git && pacman -Sccc --noconfirm
 RUN pacman -Syu --noconfirm --needed sudo && pacman -Sccc --noconfirm
 RUN pacman -Syu --noconfirm --needed base-devel && pacman -Sccc --noconfirm
 RUN pacman -Syu --noconfirm --needed go && pacman -Sccc --noconfirm
-
-RUN echo "[multilib]" >> /etc/pacman.conf
-RUN echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
 
 RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
