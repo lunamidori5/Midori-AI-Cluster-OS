@@ -17,7 +17,7 @@ RUN chmod 755 ~/.cargo/bin/pacaptr
 RUN ln -sv ~/.cargo/bin/pacaptr /usr/local/bin/yay || true
 RUN ln -sv ~/.cargo/bin/pacaptr /usr/local/bin/pacman || true
 
-RUN yay -S --noconfirm go app-admin/sudo gentoolkit wget tmate fastfetch fish && yay -Scc --noconfirm
+RUN yay -S --noconfirm go git app-admin/sudo gentoolkit wget tmate fastfetch fish && yay -Scc --noconfirm
 
 RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
