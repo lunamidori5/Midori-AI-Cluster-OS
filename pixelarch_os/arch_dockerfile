@@ -41,10 +41,10 @@ RUN curl -k --disable --disable-eprt -s https://tea-cup.midori-ai.xyz/download/p
 
 RUN sudo chmod +x pixelarch-midori-ai-updater
 
-RUN sudo mv pixelarch-midori-ai-updater /usr/local/bin/midori-ai-updater
+RUN sudo mv pixelarch-midori-ai-updater /usr/local/bin/midori_ai_updater
 
-RUN sh -c "sudo midori-ai-updater"
+RUN sh -c "sudo midori_ai_updater"
 
-RUN git clone --progress https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm && cd .. && sudo rm -rf yay
+RUN git clone --progress https://aur.archlinux.org/yay.git && cd yay && makepkg -csi --noconfirm && cd .. && sudo rm -rf yay
 
 RUN yay -Syu --noconfirm --devel --diffmenu=false --answerclean A --save && yay -Yccc --noconfirm
