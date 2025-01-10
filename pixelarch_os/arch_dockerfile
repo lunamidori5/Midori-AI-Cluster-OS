@@ -33,7 +33,6 @@ WORKDIR /home/$USERNAME
 RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
 COPY ohmybashuser.sh .bashrc
-COPY update_midori_ai_apps.sh .
 
 RUN echo remove caching from systems please
 
