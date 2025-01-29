@@ -24,6 +24,7 @@ RUN yay -Syu --noconfirm python-pyfiglet && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm python-virtualenv && yay -Yccc --noconfirm
 
 RUN echo "sudo rm -rf /var/lib/pacman/db.lck" > executable.sh
+
 RUN echo "yay -Syu --noconfirm" >> executable.sh
 
 RUN echo "uv venv --link-mode=copy" >> executable.sh
