@@ -1,0 +1,18 @@
+FROM lunamidori5/pixelarch:quartz
+
+RUN sudo sed -i 's/Quartz/Strike/g' /etc/os-release
+
+USER root
+
+RUN echo "[archstrike]" >> /etc/pacman.conf
+RUN echo "Server = https://mirror.archstrike.org/x86_64/archstrike/" >> /etc/pacman.conf
+
+ARG USERNAME=midori-ai
+
+USER $USERNAME
+WORKDIR /home/$USERNAME
+
+RUN yay -Syu --noconfirm archstrike-keyring && yay -Yccc --noconfirm
+RUN yay -Syu --noconfirm archstrike-mirrorlist && yay -Yccc --noconfirm
+RUN yay -Syu --noconfirm zenmap && yay -Yccc --noconfirm
+RUN yay -Syu --noconfirm beefproject && yay -Yccc --noconfirm
