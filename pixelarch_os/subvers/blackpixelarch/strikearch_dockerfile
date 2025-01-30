@@ -1,6 +1,6 @@
-FROM lunamidori5/pixelarch:quartz
+FROM lunamidori5/pixelarch:emerald
 
-RUN sudo sed -i 's/Quartz/Strike/g' /etc/os-release
+RUN sudo sed -i 's/Emerald/Strike/g' /etc/os-release
 
 USER root
 
