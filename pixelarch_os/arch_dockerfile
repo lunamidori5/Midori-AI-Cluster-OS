@@ -34,8 +34,6 @@ RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/
 
 COPY ohmybashuser.sh .bashrc
 
-RUN echo remove caching from systems please
-
 RUN curl -k --disable --disable-eprt -s https://tea-cup.midori-ai.xyz/download/pixelarch-midori-ai-updater > pixelarch-midori-ai-updater
 
 RUN sudo chmod +x pixelarch-midori-ai-updater
