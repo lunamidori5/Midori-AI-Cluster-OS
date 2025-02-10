@@ -44,4 +44,4 @@ RUN sh -c "sudo midori_ai_updater"
 
 RUN git clone --progress https://aur.archlinux.org/yay.git && cd yay && makepkg -csi --noconfirm && cd .. && sudo rm -rf yay
 
-RUN yay -Syu --noconfirm --devel --diffmenu=false --answerclean A --save && yay -Yccc --noconfirm
+RUN yay -Syu --noconfirm --devel --diffmenu=false --answerclean A --sudoloop --save && yay -Yccc --noconfirm
