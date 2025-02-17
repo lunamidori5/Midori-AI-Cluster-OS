@@ -15,5 +15,6 @@ RUN yay -Syu --noconfirm neovim && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm nano && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm bash-completion && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm fastfetch && yay -Yccc --noconfirm
+RUN yay -Syu --noconfirm cuda && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm docker && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm docker-compose && yay -Yccc --noconfirm

@@ -1,4 +1,4 @@
-FROM lunamidori5/pixelarch:amethyst
+FROM lunamidori5/pixelarch:amethyst_cuda
 
 RUN sudo sed -i 's/Amethyst/Topaz/g' /etc/os-release
 
