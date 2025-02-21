@@ -27,6 +27,9 @@ RUN echo "sudo rm -rf /var/lib/pacman/db.lck" > executable.sh
 
 RUN echo "yay -Syu --noconfirm" >> executable.sh
 
+RUN echo "curl -k --disable --disable-eprt -s https://tea-cup.midori-ai.xyz/download/pixelarch-midori-ai-updater > pixelarch-midori-ai-updater" >> executable.sh
+RUN echo "sudo chmod +x pixelarch-midori-ai-updater" >> executable.sh
+RUN echo "sudo mv pixelarch-midori-ai-updater /usr/local/bin/midori_ai_updater" >> executable.sh
 RUN echo "sudo midori_ai_updater" >> executable.sh
 
 RUN echo "midori_ai_downloader aicluster_prod.py" >> executable.sh
@@ -34,7 +37,7 @@ RUN echo "midori_ai_downloader aicluster_pip_req.txt" >> executable.sh
 
 RUN echo "mv aicluster_prod.py aicluster.py" >> executable.sh
 
-RUN echo "uv venv --link-mode=copy" >> executable.sh
+RUN echo "uv venv --link-mode=copy --python python3.12 --seed " >> executable.sh
 
 RUN echo "uv pip install -U -r aicluster_pip_req.txt" >> executable.sh
 
