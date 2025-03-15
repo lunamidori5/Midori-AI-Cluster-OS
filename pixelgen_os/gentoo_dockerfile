@@ -17,7 +17,7 @@ COPY pixalarch-logo.png /etc/pixalarch-logo.png
 RUN emerge --sync
 RUN emerge app-admin/sudo rust dev-vcs/git
 
-RUN groupadd --gid $USER_GID $USERNAME && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME && echo "$USERNAME ALL=(root) NOPASSWD:ALL" > /etc/sudoers && chmod 0440 /etc/sudoers
+RUN groupadd --gid $USER_GID $USERNAME && useradd --uid $USER_UID --gid $USER_GID -G wheel -m $USERNAME && sed '$d' /etc/sudoers && echo "%wheel ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers && echo "@includedir /etc/sudoers.d" >> /etc/sudoers && chmod 0440 /etc/sudoers
 
 RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
