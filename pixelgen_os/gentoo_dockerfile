@@ -17,7 +17,7 @@ COPY make.conf /etc/portage/make.conf
 COPY pixalarch-logo.png /etc/pixalarch-logo.png
 
 RUN emerge --sync
-RUN USE=$FIX_CURL emerge --oneshot curl
+RUN CURL_QUIC=-* USE=$FIX_CURL emerge --oneshot curl
 RUN emerge app-admin/sudo rust dev-vcs/git
 
 RUN groupadd --gid $USER_GID $USERNAME && useradd --uid $USER_UID --gid $USER_GID -G wheel -m $USERNAME && sed '$d' /etc/sudoers && echo "%wheel ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers && echo "@includedir /etc/sudoers.d" >> /etc/sudoers && chmod 0440 /etc/sudoers
