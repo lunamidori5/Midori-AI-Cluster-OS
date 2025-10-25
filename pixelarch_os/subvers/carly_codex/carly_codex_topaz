@@ -5,3 +5,7 @@ RUN sudo sed -i 's/Topaz/Codex/g' /etc/os-release
 RUN yay -Syu --noconfirm cmake && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm ttyd && yay -Yccc --noconfirm
 RUN yay -Syu --noconfirm openai-codex-bin && yay -Yccc --noconfirm
+
+RUN mkdir ~/.codex
+
+COPY config.toml ~/.codex/config.toml
